@@ -1,0 +1,17 @@
+Gene_rnaSeq	Gene	Type
+CD3E	CD3	T Cells
+CD4	CD4	T Cells
+FOXP3	FOXP3	T regs
+CD8A	CD8	T Cells
+NCAM1	CD56	NK Cells
+KLRF1	KLRF1	NK Cells
+FCGR3A	CD16	Monocytes
+ITGAM	CD11b	Monocytes
+CLEC9A	CLEC9A	Dendritic Cells
+CD1C	CD1C	Dendritic Cells
+LILRA4	LILRA4	pDCs
+HBA1	HBA	Erythrocytes
+PF4	PF4	Platelet
+TPSAB1	TPSAB1	MAST
+CD19	CD19	B Cells
+MS4A1	CD20	B Cells
