@@ -9,15 +9,15 @@ library(Seurat)
 library(data.table)
 library(ggplot2)
 library(dplyr)
-library("viridis")
-library("pheatmap")
+library(viridis)
+library(pheatmap)
 library(RColorBrewer)
-library("cowplot")
-library("scater")
+library(cowplot)
+library(scater)
 
 # ===== Functions =====
 
-source("/data/work/Projects/SingleTCR/KITE/Publication/Code_online/src/pheatmap_updated.R")
+source("/src/pheatmap_updated.R")
 
 scale_rows = function(x){
   m = apply(x, 1, mean, na.rm = T)
@@ -35,11 +35,11 @@ scale_mat = function(mat, scale){
 
 # ===== Initialization =====
 
-counts <- readRDS("/data/work/Projects/SingleTCR/KITE/Publication/Code_online/data/normalized_count_data.RDS")
-metadata <- readRDS("/data/work/Projects/SingleTCR/KITE/Publication/Code_online/data/metadata.RDS")
-umap_embeddings <- readRDS("/data/work/Projects/SingleTCR/KITE/Publication/Code_online/data/umap_embeddings.RDS")
-major_markers <- fread("/data/work/Projects/SingleTCR/KITE/Publication/Code_online/data/major_markers.txt", sep="\t")
-major_markers_heatmap <- fread("/data/work/Projects/SingleTCR/KITE/Publication/Code_online/data/major_markers_heatmap.txt", sep="\t")
+counts <- readRDS("/data/normalized_count_data.RDS")
+metadata <- readRDS("/data/metadata.RDS")
+umap_embeddings <- readRDS("/data/umap_embeddings.RDS")
+major_markers <- fread("/data/major_markers.txt", sep="\t")
+major_markers_heatmap <- fread("/data/major_markers_heatmap.txt", sep="\t")
 
 
 tissue_so <- CreateSeuratObject(counts = counts, project = "ZUMA1", assay = "RNA",
@@ -155,6 +155,7 @@ plot_grid(plotlist = plot,ncol = 3, nrow=6)
 
 
 # ===== Figure 1e =====
+
 
 SubClusterAvg = sumCountsAcrossCells(
   x = tissue_so@assays$RNA@data,
